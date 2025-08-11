@@ -254,7 +254,7 @@ header
 .header-area .main-nav .logo {
   line-height: 80px;
   color: #fff;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 800;
   text-transform: uppercase;
   float: left;
@@ -306,6 +306,38 @@ header
 
 .header-area .main-nav .nav li a {
   color: #fff;
+}
+
+.header-area .main-nav .nav li:last-child a {
+  display: inline-block;
+  font-size: 13px;
+  padding: 11px 17px;
+  background-color: #ed563b;
+  color: #fff;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  transition: all .3s;
+  height: auto;
+  line-height: 20px;
+}
+
+.header-area .main-nav .nav li:last-child a:hover {
+  background-color: #f9735b;
+  opacity: 1;
+}
+
+.header-area .main-nav .nav li:hover a,
+.header-area .main-nav .nav li a.active {
+  color: #ed563b!important;
+  opacity: 1;
+}
+
+.background-header .main-nav .nav li:hover a,
+.background-header .main-nav .nav li a.active {
+  color: #ed563b!important;
+  opacity: 1;
 }
 
 .header-area .main-nav .menu-trigger {
@@ -441,7 +473,7 @@ header
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 997px) {
   .header-area .main-nav .logo {
     color: #1e1e1e;
   }
@@ -553,7 +585,7 @@ header
   }
 }
 
-@media (min-width: 767px) {
+@media (min-width: 997px) {
   .header-area .main-nav .nav {
     display: flex !important;
   }
@@ -588,7 +620,7 @@ banner
     background-color: rgba(35,45,57,0.8);
     top: 0;
     left: 0;
-    bottom: 0px;
+    bottom: 7px;
     width: 100%;
 }
 
@@ -1183,7 +1215,7 @@ responsive
 @media (max-width: 992px) {
 
   .main-banner .caption h2 {
-    font-size: 64px;
+    font-size: 40px;
   }
   #features {
     margin-bottom: 110px;
