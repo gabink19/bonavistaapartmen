@@ -123,3 +123,38 @@
 
 
 })(window.jQuery);
+
+// Daftar gambar yang ingin ditampilkan
+const images = [
+  "assets/images/background1.jpeg",
+  "assets/images/background2.jpeg",
+  "assets/images/background3.jpeg"
+];
+
+let current = 0;
+const img = document.getElementById("bg-video");
+
+// Fungsi untuk efek geser ke kiri saat ganti gambar
+function slideToNext() {
+  img.style.transition = "transform 0.5s, opacity 0.5s";
+  img.style.transform = "translateX(-100%)";
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+    // Update gambar setelah animasi keluar
+    current = (current + 1) % images.length;
+    img.src = images[current];
+    img.style.transition = "none";
+    img.style.transform = "translateX(100%)";
+
+    // Animasi masuk dari kanan
+    setTimeout(() => {
+      img.style.transition = "transform 0.5s, opacity 0.5s";
+      img.style.transform = "translateX(0)";
+      img.style.opacity = "1";
+    }, 10);
+  }, 500);
+}
+
+// Set interval untuk slideshow
+setInterval(slideToNext, 5000);
