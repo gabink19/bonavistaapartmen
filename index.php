@@ -1,3 +1,6 @@
+<?php
+require_once 'koneksi.php'; // Buat file koneksi.php untuk koneksi database
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,6 +15,84 @@
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css?v=1.2" />
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css?v=1.2" />
     <link rel="stylesheet" href="assets/css/templatemo-training-studio.css?v=1.2" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flickity@2/dist/flickity.min.css">
+    <style>
+      .gallery-cell {
+          width: 300px;
+          /* height: 150px; */
+          margin-right: 10px;
+          /* background: #8C8; */
+          counter-increment: gallery-cell;
+          text-align: center;
+      }
+          
+      /* cell number */
+      .gallery-cell:before {
+          display: block;
+          text-align: center;
+          /* content: counter(gallery-cell); */
+          /* line-height: 150px; */
+          font-size: 80px;
+          color: white;
+      }
+      .gallery-cell a p {
+          color: #ffffff;
+          font-size: 16px;
+          font-weight: 600;
+          margin-bottom: 5px;
+          margin-top: 10px;
+      }
+      .gallery-cell img {
+          width: 100%;
+          height: auto;
+          transition: transform 0.3s ease-in-out;
+      }
+
+      .gallery-cell:hover img {
+          transform: scale(1.07); /* Memperbesar gambar sedikit saat hover */
+      }
+      .gallery-cell:hover p {
+          transform: scale(1.07); /* Memperbesar gambar sedikit saat hover */
+      }
+      /* Mengubah warna dot yang aktif */
+      .flickity-page-dots .dot {
+          background-color: white;
+      }
+
+      /* Mengubah warna dot saat hover */
+      .flickity-page-dots .dot:hover {
+          background-color: rgba(255, 255, 255, 0.7); /* Agak transparan saat hover */
+      }
+
+      /* Mengubah warna dot yang aktif */
+      .flickity-page-dots .dot.is-selected {
+          background-color: white; /* Warna putih untuk dot aktif */
+      }
+      .feature .feature-text {
+          padding-left: 30px;
+      }
+
+      .feature .feature-text h3 {
+          margin: 0 0 10px 0;
+          color: #ffffff;
+          font-size: 25px;
+          font-weight: 600;
+      }
+
+      .feature .feature-text p {
+          margin: 0;
+          color: #ffffff;
+          font-size: 18px;
+          font-weight: 400;
+      }
+
+      .feature .col-md-12:nth-child(2n) [class^="flaticon-"]::before,
+      .feature .col-md-12:nth-child(2n) h3,
+      .feature .col-md-12:nth-child(2n) p {
+          color: #ffffff;
+      }
+
+    </style>
   </head>
   <body style="overflow-x: hidden;">
     <!-- ***** Preloader Start ***** -->
@@ -114,13 +195,74 @@
 
     <!-- ***** Call to Action Start ***** -->
     <section class="section" id="call-to-action">
-      <div class="container">
+      <div class="container" style="max-width: 100%;">
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="cta-content">
-              <h2>Don’t <em>think</em>, begin <em>today</em>!</h2>
-              <p>Want to turn some heads? Tone up in BonaVista's facilities.</p>
-              <div class="main-button scroll-to-section"><a href="#our-classes">Go to Our Facilities</a></div>
+              <div class="col-md-12 fact-left wow slideInLeft">
+                            <div class="col-lg-12 carousel-flick">
+                                <div class="gallery js-flickity"
+                                    data-flickity-options='{ "wrapAround": true, "cellAlign": "center", "contain": true, "autoPlay": 3000 }'>
+                                        <?php
+$query = "SELECT 
+              l.*, 
+              li.image_url
+          FROM 
+              listings l
+          LEFT JOIN (
+              SELECT 
+                  listings_id, 
+                  image_url
+              FROM 
+                  listings_images
+              WHERE 
+                  id IN (
+                      SELECT MIN(id) FROM listings_images GROUP BY listings_id
+                  )
+          ) li ON l.id = li.listings_id";
+$result = mysqli_query($conn, $query);
+$rowCount = $result ? mysqli_num_rows($result) : 0;
+
+// Membuat array untuk menyimpan data
+$dataArray = [];
+
+// Ambil semua data yang ada
+if ($result && $rowCount > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $dataArray[] = $row;
+    }
+    // Jika rowCount kurang dari 6, ulangi data yang sudah ada sampai jumlahnya mencapai 6
+    // while (count($dataArray) < 2 && $rowCount > 0) {
+    //     $dataArray[] = $dataArray[count($dataArray) % $rowCount];
+    // }
+    foreach ($dataArray as $data) :
+        $gambar = !empty($data['image_url']) ? $data['image_url'] : 'assets/images/notfound.jpg';
+?>
+    <div class="gallery-cell">
+        <a href="javascript:void(0);" 
+           class="open-modal"
+           data-id="<?php echo $data['id']; ?>"
+           data-img="<?php echo $gambar; ?>"
+           data-type="<?php echo strtoupper($data['type'] ?? ''); ?>"
+           data-price="Rp <?php echo isset($data['price']) ? number_format($data['price'], 0, ',', '.') : '0'; ?>">
+            <img src="<?php echo $gambar; ?>" style="height: 150px; width: 260px; max-width: 100%;">
+            <p style="text-align: center;">
+              <span class="badge badge-primary" style="font-size: 15px;">
+                <?php echo strtoupper($data['type'] ?? ''); ?>
+              </span>
+            </p>
+            <p style="text-align: center;">Rp <?php echo isset($data['price']) ? number_format($data['price'], 0, ',', '.') : '0'; ?></p>
+        </a>
+    </div>
+<?php
+    endforeach;
+} else {
+    echo '<div class="gallery-cell"><p style="color:white;">No listings available.</p></div>';
+}
+?>
+                                </div>
+                            </div>
+                        </div>
             </div>
           </div>
         </div>
@@ -329,7 +471,92 @@
     <script src="assets/js/imgfix.min.js"></script>
     <script src="assets/js/mixitup.js"></script>
     <script src="assets/js/accordions.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flickity@2/dist/flickity.pkgd.min.js"></script>
     <!-- Global Init -->
     <script src="assets/js/custom.js?v=1.2"></script>
+
+    <!-- Modal Bootstrap -->
+<div class="modal fade" id="carouselModal" tabindex="-1" role="dialog" aria-labelledby="carouselModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="carouselModalLabel">Detail Listing</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="modalImages" class="mb-3"></div>
+        <div id="modalType" class="mb-2"></div>
+        <div id="modalPrice" class="mb-2"></div>
+        <div id="modalDesc" class="mb-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    <script>
+$(document).ready(function() {
+  $('.gallery').on('click', '.open-modal', function(e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    $.ajax({
+      url: 'listing_detail.php',
+      type: 'GET',
+      data: { id: id },
+      dataType: 'json',
+      success: function(res) {
+        // Foto-foto
+        var imgHtml = '';
+        if (res.images && res.images.length > 2) {
+          imgHtml += '<div class="modal-flickity js-flickity" style="width:100%;" data-flickity-options=\'{ "wrapAround": true, "cellAlign": "center", "contain": true }\'>';
+          res.images.forEach(function(img) {
+            imgHtml += '<div class="gallery-cell"><img src="' + (img || 'assets/images/notfound.jpg') + '" class="modal-thumb" style="height:200px;width:auto;margin:5px;border-radius:8px;object-fit:cover;cursor:pointer;" onclick="window.open(\''+(img || 'assets/images/notfound.jpg')+'\', \'_blank\');"></div>';
+          });
+          imgHtml += '</div>';
+        } else if (res.images && res.images.length) {
+          imgHtml += '<div class="d-flex flex-wrap justify-content-center">';
+          res.images.forEach(function(img) {
+            imgHtml += '<img src="' + (img || 'assets/images/notfound.jpg') + '" class="modal-thumb" style="height:200px;width:auto;margin:5px;border-radius:8px;object-fit:cover;cursor:pointer;" onclick="window.open(\''+(img || 'assets/images/notfound.jpg')+'\', \'_blank\');">';
+          });
+          imgHtml += '</div>';
+        } else {
+          imgHtml = '<div class="text-center text-muted">No images available.</div>';
+        }
+        $('#modalImages').html(imgHtml);
+
+        // Info lain
+        $('#modalType').html('<span class="badge badge-primary" style="font-size: 15px;">'+(res.type || '-')+'</span>');
+        $('#modalPrice').text(res.price || '-');
+        $('#modalDesc').html('<strong>Deskripsi:</strong> <br>' + (res.desc || '-'));
+        $('#carouselModal').modal('show');
+      },
+      error: function() {
+        $('#modalImages').html('<div class="text-center text-danger">Failed to load data.</div>');
+        $('#modalType').html('');
+        $('#modalPrice').html('');
+        $('#modalDesc').html('');
+        $('#carouselModal').modal('show');
+      }
+    });
+  });
+
+  $('#carouselModal').on('shown.bs.modal', function () {
+    if ($('.modal-flickity').length) {
+      $('.modal-flickity').flickity({
+        wrapAround: true,
+        cellAlign: 'center',
+        contain: true
+      });
+      $('.modal-flickity').flickity('resize');
+    }
+  });
+
+  $('#carouselModal').on('hidden.bs.modal', function () {
+    if ($('.modal-flickity').length) {
+      $('.modal-flickity').flickity('destroy');
+    }
+  });
+});
+</script>
   </body>
 </html>
