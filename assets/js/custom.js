@@ -160,3 +160,20 @@ function slideToNext() {
 
 // Set interval untuk slideshow
 setInterval(slideToNext, 5000);
+$('.loop').owlCarousel({
+  center: false,
+  items: 2,
+  loop: true,
+  margin: 20,
+  nav: true,
+  dots: true,
+  autoplay: true,
+  autoplayTimeout: 8000,
+  mouseDrag: true,    // pastikan true (default)
+  touchDrag: true,    // pastikan true (default)
+  responsive:{
+      992:{
+          items:4
+      }
+  }
+});

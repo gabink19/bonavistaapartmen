@@ -12,9 +12,10 @@ require_once 'koneksi.php'; // Buat file koneksi.php untuk koneksi database
     <title>BonaVista Apartments</title>
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css?v=1.2" />
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css?v=1.2" />
-    <link rel="stylesheet" href="assets/css/templatemo-training-studio.css?v=1.2" />
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css?v=1.2.1" />
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css?v=1.2.1" />
+    <link rel="stylesheet" href="assets/css/templatemo-training-studio.css?v=1.2.1" />
+    <link rel="stylesheet" href="assets/css/owl.css?v=1.2.1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flickity@2/dist/flickity.min.css">
     <style>
       .gallery-cell {
@@ -200,69 +201,69 @@ require_once 'koneksi.php'; // Buat file koneksi.php untuk koneksi database
           <div class="col-lg-10 offset-lg-1">
             <div class="cta-content">
               <div class="col-md-12 fact-left wow slideInLeft">
-                            <div class="col-lg-12 carousel-flick">
-                                <div class="gallery js-flickity"
-                                    data-flickity-options='{ "wrapAround": true, "cellAlign": "center", "contain": true, "autoPlay": 3000 }'>
-                                        <?php
-$query = "SELECT 
-              l.*, 
-              li.image_url
-          FROM 
-              listings l
-          LEFT JOIN (
-              SELECT 
-                  listings_id, 
-                  image_url
-              FROM 
-                  listings_images
-              WHERE 
-                  id IN (
-                      SELECT MIN(id) FROM listings_images GROUP BY listings_id
-                  )
-          ) li ON l.id = li.listings_id";
-$result = mysqli_query($conn, $query);
-$rowCount = $result ? mysqli_num_rows($result) : 0;
+              <div class="col-lg-12 carousel-flick">
+                  <div class="gallery js-flickity"
+                      data-flickity-options='{ "wrapAround": true, "cellAlign": "center", "contain": true, "autoPlay": 3000 }'>
+                          <?php
+                            $query = "SELECT 
+                                          l.*, 
+                                          li.image_url
+                                      FROM 
+                                          listings l
+                                      LEFT JOIN (
+                                          SELECT 
+                                              listings_id, 
+                                              image_url
+                                          FROM 
+                                              listings_images
+                                          WHERE 
+                                              id IN (
+                                                  SELECT MIN(id) FROM listings_images GROUP BY listings_id
+                                              )
+                                      ) li ON l.id = li.listings_id";
+                            $result = mysqli_query($conn, $query);
+                            $rowCount = $result ? mysqli_num_rows($result) : 0;
 
-// Membuat array untuk menyimpan data
-$dataArray = [];
+                            // Membuat array untuk menyimpan data
+                            $dataArray = [];
 
-// Ambil semua data yang ada
-if ($result && $rowCount > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        $dataArray[] = $row;
-    }
-    // Jika rowCount kurang dari 6, ulangi data yang sudah ada sampai jumlahnya mencapai 6
-    // while (count($dataArray) < 2 && $rowCount > 0) {
-    //     $dataArray[] = $dataArray[count($dataArray) % $rowCount];
-    // }
-    foreach ($dataArray as $data) :
-        $gambar = !empty($data['image_url']) ? $data['image_url'] : 'assets/images/notfound.jpg';
-?>
-    <div class="gallery-cell">
-        <a href="javascript:void(0);" 
-           class="open-modal"
-           data-id="<?php echo $data['id']; ?>"
-           data-img="<?php echo $gambar; ?>"
-           data-type="<?php echo strtoupper($data['type'] ?? ''); ?>"
-           data-price="Rp <?php echo isset($data['price']) ? number_format($data['price'], 0, ',', '.') : '0'; ?>">
-            <img src="<?php echo $gambar; ?>" style="height: 150px; width: 260px; max-width: 100%;">
-            <p style="text-align: center;">
-              <span class="badge badge-primary" style="font-size: 15px;">
-                <?php echo strtoupper($data['type'] ?? ''); ?>
-              </span>
-            </p>
-            <p style="text-align: center;">Rp <?php echo isset($data['price']) ? number_format($data['price'], 0, ',', '.') : '0'; ?></p>
-        </a>
-    </div>
-<?php
-    endforeach;
-} else {
-    echo '<div class="gallery-cell"><p style="color:white;">No listings available.</p></div>';
-}
-?>
+                            // Ambil semua data yang ada
+                            if ($result && $rowCount > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $dataArray[] = $row;
+                                }
+                                // Jika rowCount kurang dari 6, ulangi data yang sudah ada sampai jumlahnya mencapai 6
+                                // while (count($dataArray) < 2 && $rowCount > 0) {
+                                //     $dataArray[] = $dataArray[count($dataArray) % $rowCount];
+                                // }
+                                foreach ($dataArray as $data) :
+                                    $gambar = !empty($data['image_url']) ? $data['image_url'] : 'assets/images/notfound.jpg';
+                            ?>
+                                <div class="gallery-cell">
+                                    <a href="javascript:void(0);" 
+                                      class="open-modal"
+                                      data-id="<?php echo $data['id']; ?>"
+                                      data-img="<?php echo $gambar; ?>"
+                                      data-type="<?php echo strtoupper($data['type'] ?? ''); ?>"
+                                      data-price="Rp <?php echo isset($data['price']) ? number_format($data['price'], 0, ',', '.') : '0'; ?>">
+                                        <img src="<?php echo $gambar; ?>" style="height: 150px; width: 260px; max-width: 100%;">
+                                        <p style="text-align: center;">
+                                          <span class="badge badge-primary" style="font-size: 15px;">
+                                            <?php echo strtoupper($data['type'] ?? ''); ?>
+                                          </span>
+                                        </p>
+                                        <p style="text-align: center;">Rp <?php echo isset($data['price']) ? number_format($data['price'], 0, ',', '.') : '0'; ?></p>
+                                    </a>
                                 </div>
-                            </div>
-                        </div>
+                            <?php
+                                endforeach;
+                            } else {
+                                echo '<div class="gallery-cell"><p style="color:white;">No listings available.</p></div>';
+                            }
+                            ?>
+                      </div>
+                  </div>
+              </div>
             </div>
           </div>
         </div>
@@ -320,6 +321,46 @@ if ($result && $rowCount > 0) {
                 <p style="text-align: justify;">Palm Plaza and Garden offer a serene outdoor setting surrounded by lush greenery and elegant landscaping, perfect for relaxation, social gatherings, and leisurely walks.</p>
               </article>
             </section>
+          </div>
+          <div class="container-fluid wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="loop owl-carousel">
+                  <?php
+                  $galleryDir = 'gallery/';
+                  $images = glob($galleryDir . '*.{jpg}', GLOB_BRACE);
+
+                  if ($images && count($images) > 0) {
+                    $chunkSize = 2;
+                    $chunks = array_chunk($images, $chunkSize);
+                    foreach ($chunks as $chunk) {
+                      echo '<div class="item">';
+                      foreach ($chunk as $img) {
+                        $imgName = basename($img);
+                        // Optional: Extract title from filename, e.g. "Operasi Katarak" from "operasi_katarak.jpg"
+                        $title = ucwords(str_replace(['-', '_'], ' ', pathinfo($imgName, PATHINFO_FILENAME)));
+                        echo '<div class="portfolio-item">
+                            <div class="thumb">
+                              <img src="' . $img . '" alt="' . htmlspecialchars($title) . '">
+                              <div class="hover-content">
+                                <div class="inner-content">
+                                  <a href="#"><h4>' . $title . '</h4></a>
+                                  <span>2024</span>
+                                </div>
+                              </div>
+                            </div>
+                            </div>';
+                      }
+                      echo '</div>';
+                    }
+                  } else {
+                    echo '<div class="item"><div class="portfolio-item"><div class="thumb"><div class="hover-content"><div class="inner-content"><span>No gallery images found.</span></div></div></div></div></div>';
+                  }
+                  ?>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -465,6 +506,7 @@ if ($result && $rowCount > 0) {
     <script src="assets/js/popper.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- Plugins -->
+    <script src="assets/js/owl-carousel.js?v=1.2.1"></script>
     <script src="assets/js/scrollreveal.min.js"></script>
     <script src="assets/js/waypoints.min.js"></script>
     <script src="assets/js/jquery.counterup.min.js"></script>
@@ -473,7 +515,7 @@ if ($result && $rowCount > 0) {
     <script src="assets/js/accordions.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flickity@2/dist/flickity.pkgd.min.js"></script>
     <!-- Global Init -->
-    <script src="assets/js/custom.js?v=1.2"></script>
+    <script src="assets/js/custom.js?v=1.2.1"></script>
 
     <!-- Modal Bootstrap -->
 <div class="modal fade" id="carouselModal" tabindex="-1" role="dialog" aria-labelledby="carouselModalLabel" aria-hidden="true">
