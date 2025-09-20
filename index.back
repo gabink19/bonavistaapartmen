@@ -125,6 +125,7 @@ require_once 'koneksi.php'; // Buat file koneksi.php untuk koneksi database
                 <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                 <li class="scroll-to-section"><a href="#features">About</a></li>
                 <li class="scroll-to-section"><a href="#our-classes">Facilities</a></li>
+                <li class="scroll-to-section"><a href="#schedule">Schedules</a></li>
                 <li class="scroll-to-section"><a href="#contact-us">Contact</a></li>
                 <li class="" style="display: none;"><a href="#"></a></li>
               </ul>
@@ -143,7 +144,9 @@ require_once 'koneksi.php'; // Buat file koneksi.php untuk koneksi database
 
       <div class="video-overlay header-text">
         <div class="caption">
-          
+          <h6>find your perfect home</h6>
+          <h2>The Total Living Environment <em>BonaVista Apartments</em></h2>
+          <div class="main-button scroll-to-section"><a href="#features">See our apartments</a></div>
         </div>
       </div>
     </div>
@@ -364,9 +367,89 @@ require_once 'koneksi.php'; // Buat file koneksi.php untuk koneksi database
     </section>
     <!-- ***** Our Classes End ***** -->
 
-   
+    <!-- ***** Schedule Start ***** -->
+    <section class="section" id="schedule">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+            <div class="section-heading dark-bg">
+              <h2>Tennis Court <em>Schedule</em></h2>
+              <img src="assets/images/line-dec.png" alt="divider" />
+              <!-- Updated English narrative -->
+              <p style="text-align: justify;">
+                Game, set, match—on your terms. Our digital booking makes it simple to lock in your preferred playtime, whether you love sunrise rallies or evening doubles. Fair-use rules keep access equitable, while regular maintenance ensures consistently great playing conditions. Book in seconds and enjoy a seamless court experience from start to finish.
+              </p>
+              <br>
+              <ul style="text-align:justify; list-style: disc; margin: 0 auto; max-width: 780px; color: white;">
+                <li><strong>Fair use:</strong> maximum 2 hours per week per unit.</li>
+                <li><strong>Booking opens:</strong> every Monday at 00:01 for the upcoming week.</li>
+                <li><strong>Cancellation window:</strong> free up your slot up to 1 hour before play.</li>
+                <li><strong>Maintenance:</strong> any temporary closures will be posted below the calendar.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <iframe title="BonaVista Tennis Court Booking" src="https://booking.bonavistaapartments.com/booking-inframe" width="100%" height="100%" frameborder="0" style="display: block; border: 0; min-height: 600px; height: 110vh; overflow: hidden; border-radius: 10px;"></iframe>
+          <div class="col-12 text-center my-4" style="margin-top: -100px !important;">
+            <li class="main-button"><a href="https://booking.bonavistaapartments.com/">Book a Court Now</a></li>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ***** Schedule End ***** -->
 
- 
+    <!-- ***** Services Start ***** -->
+    <section class="section" id="trainers">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+            <div class="section-heading">
+              <h2>Our <em>Services</em></h2>
+              <img src="assets/images/line-dec.png" alt="divider" />
+              <p style="text-align: justify;"><strong>Need Convenience? Services Galore.</strong></p>
+              <!-- Polished English narrative -->
+              <p style="text-align: justify;">
+                Experience a lifestyle where everything you need is right at your doorstep. From world‑class sports facilities and lush green spaces to everyday essentials and dining, every service is thoughtfully designed to make life easier and more enjoyable. Whether you’re unwinding, staying active, shopping, or socializing, you’ll find it all within minutes of home. Convenience has never been this effortless—this is more than a residence; it’s a community that caters to your every need.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row" role="list">
+          <div class="col-lg-4" role="listitem">
+            <div class="trainer-item">
+              <div class="image-thumb"><img src="assets/images/bonavistaservice1.jpg" alt="On‑site minimarket and laundry" /></div>
+              <div class="down-content">
+                <p style="text-align: justify;">
+                  Onsite minimarket and drycleaning/laundry, Service‑oriented property management with on‑site maintenance Optional maid service and food delivery partners.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4" role="listitem">
+            <div class="trainer-item">
+              <div class="image-thumb"><img src="assets/images/bonavistaservice2.jpg" alt="Connectivity and parking" /></div>
+              <div class="down-content">
+                <p style="text-align: justify;">
+                  Satellite and cable TV (including premium channels and NHK). Ample private covered parking. High‑speed internet via cable modem connections.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4" role="listitem">
+            <div class="trainer-item">
+              <div class="image-thumb"><img src="assets/images/bonavistaservice3.jpg" alt="Backup power and BBQ area" /></div>
+              <div class="down-content">
+                <p style="text-align: justify;">
+                  Backup generators ensure a reliable power supply, while the poolside BBQ area sets the scene for private gatherings and celebrations with family and friends.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ***** Services End ***** -->
 
     <!-- ***** Contact Us Area Starts ***** -->
     <section class="section" id="contact-us">
