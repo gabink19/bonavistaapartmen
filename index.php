@@ -12,10 +12,10 @@ require_once 'koneksi.php'; // Buat file koneksi.php untuk koneksi database
     <title>BonaVista Apartments</title>
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css?v=1.2.1" />
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css?v=1.2.1" />
-    <link rel="stylesheet" href="assets/css/templatemo-training-studio.css?v=1.2.1" />
-    <link rel="stylesheet" href="assets/css/owl.css?v=1.2.1">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css?v=2.1" />
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css?v=2.1" />
+    <link rel="stylesheet" href="assets/css/templatemo-training-studio.css?v=2.1" />
+    <link rel="stylesheet" href="assets/css/owl.css?v=2.1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flickity@2/dist/flickity.min.css">
     <style>
       .gallery-cell {
@@ -124,7 +124,8 @@ require_once 'koneksi.php'; // Buat file koneksi.php untuk koneksi database
               <ul class="nav">
                 <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                 <li class="scroll-to-section"><a href="#features">About</a></li>
-                <li class="scroll-to-section"><a href="#our-classes">Facilities</a></li>
+                <li class="scroll-to-section"><a href="#facilities">Facilities</a></li>
+                <li class="scroll-to-section"><a href="#gallery">Gallery</a></li>
                 <li class="scroll-to-section"><a href="#contact-us">Contact</a></li>
                 <li class="" style="display: none;"><a href="#"></a></li>
               </ul>
@@ -139,7 +140,7 @@ require_once 'koneksi.php'; // Buat file koneksi.php untuk koneksi database
 
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner" id="top" style="background-image: url('assets/images/background.jpeg');">
-      <img src="assets/images/background1.jpeg" alt="Lifestyle at BonaVista" id="bg-video" />
+      <img src="assets/images/background2.jpeg" alt="Lifestyle at BonaVista" id="bg-video" />
 
       <div class="video-overlay header-text">
         <div class="caption">
@@ -149,54 +150,171 @@ require_once 'koneksi.php'; // Buat file koneksi.php untuk koneksi database
     </div>
     <!-- ***** Main Banner Area End ***** -->
 
-    <!-- ***** Features Item Start ***** -->
-    <section class="section" id="features">
+
+    <!-- ***** Our About Us Start ***** -->
+    <section class="section" id="features" style="background-color: #2d5a44;margin-bottom: 0px !important;">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-6 offset-lg-3">
             <div class="section-heading">
-              <h2>About Bonavista Apartments</h2>
-              <img src="assets/images/line-dec.png" alt="divider" />
-              <p style="text-align: justify;">
-                Bonauli Real Estate is a property developer focused on creating homes, offices, and commercial buildings of lasting value, recognized for its environmentally conscious approach by Jakarta authorities. Founded in 1972, the company was a founding member of Real Estate Indonesia (REI). Its principal founder, Mr. Sjarif Batanghari, served four terms on the REI Board of Directors and now serves as Honorary Director.
-              </p>
+              <h2 style="color: white !important;">ABOUT <em>US</em></h2>
             </div>
           </div>
-          <div class="col-lg-6">
-            <ul class="features-items">
-              <li class="feature-item">
-                <div class="left-icon"></div>
-                <div class="right-content">
-                  <p style="text-align: justify;">
-                    The name Bonauli comes from the Batak language, where <em>Bona</em> means “Source/Beginning” and <em>Uli</em> means “Beautiful.” Its logo features stylized initials symbolizing land parcels. Completed projects in Jakarta include Bona Indah Gardens (30 ha) near BonaVista Apartments, Bona Sarana Indah (12 ha), and Batu Ceper Indah Housing Estates (10 ha).
-                  </p>
-                </div>
-              </li>
+        </div>
+        <div class="row" id="tabs" style="padding-bottom: 80px;">
+          <div class="col-lg-8">
+            <ul>
+              <li><a href="#tabs-1"><img src="assets/images/logobonavistakecil1.png" alt="icon" />Access to Toll JORR and MRT</a></li>
+              <li><a href="#tabs-2"><img src="assets/images/logobonavistakecil1.png" alt="icon" />Near by premium hospitals</a></li>
+              <li><a href="#tabs-3"><img src="assets/images/logobonavistakecil1.png" alt="icon" />Playground &amp; Jogging</a></li>
+              <li><a href="#tabs-4"><img src="assets/images/logobonavistakecil1.png" alt="icon" />Tennis &amp; Football</a></li>
+              <li><a href="#tabs-5"><img src="assets/images/logobonavistakecil1.png" alt="icon" />Palm Plaza &amp; Garden</a></li>
             </ul>
           </div>
-          <div class="col-lg-6">
-            <ul class="features-items">
-              <li class="feature-item">
-                <div class="left-icon"></div>
-                <div class="right-content">
-                  <p style="text-align: justify;">
-                    Projects under development include the 40‑hectare Bona Karta estate in the vibrant industrial town of Cilegon, West Java. Bona Karta encompasses townhomes, shophouses, the Cilegon International School, and the future four‑star Cilegon Lee Gardens Hotel, a joint venture with Denmark's Maersk Line and Hong Kong's Lee Gardens Group.
-                  </p>
-                </div>
-              </li>
-            </ul>
+          <div class="col-lg-4">
+            <section class="tabs-content">
+              <article id="tabs-1">
+                <img src="assets/images/collage_result.jpg" alt="Lobby and EV Charger" />
+                <h4 style="color:#ed563b;">Access to Toll JORR and MRT</h4>
+                <p style="text-align: justify;color:white;">Easy access to Jakarta Outer Ring Road (JORR) and the MRT, making commuting and travel convenient for residents.</p>
+              </article>
+              <article id="tabs-2">
+                <img src="assets/images/pool_collage.jpg" alt="Nearby Hospitals" />
+                <h4 style="color:#ed563b;">Nearby Premium Hospitals</h4>
+                <p style="text-align: justify;color:white;">Close to Mayapada Hospital Jakarta Selatan, Siloam Hospital TB Simatupang, and RS Pondok Indah, ensuring quality healthcare is always within reach.</p>
+              </article>
+              <article id="tabs-3">
+                <img src="assets/images/playground_garden_collage.jpg" alt="Nearby Schools" />
+                <h4 style="color:#ed563b;">Nearby Acclaimed Schools</h4>
+                <p style="text-align: justify;color:white;">Surrounded by top schools such as Kinderfield, Singapore Intercultural School, Cikal, and Al-Izhar, providing excellent education options for families.</p>
+              </article>
+              <article id="tabs-4">
+                <img src="assets/images/sport_collage.jpg" alt="Nearby Facilities" />
+                <h4 style="color:#ed563b;">Nearby Grocery Stores, Laundry, Bank, Mall</h4>
+                <p style="text-align: justify;color:white;">Convenient access to daily necessities with nearby grocery stores, laundry services, banks, and shopping malls.</p>
+              </article>
+              <article id="tabs-5">
+                <img src="assets/images/garden_collage.jpg" alt="Facilities and Garden" />
+                <h4 style="color:#ed563b;">Playground, Jogging, Tennis, Football, Palm Plaza &amp; Garden</h4>
+                <p style="text-align: justify;color:white;">Enjoy a variety of facilities including playground, jogging track, tennis and football courts, and the serene Palm Plaza &amp; Garden for relaxation and recreation.</p>
+              </article>
+            </section>
           </div>
         </div>
       </div>
     </section>
-    <!-- ***** Features Item End ***** -->
+    <!-- ***** Our About Us End ***** -->
+
+    <!-- ***** Our Facilities Start ***** -->
+    <section class="section section-bg-cover" id="facilities" style="background-image: url('assets/images/background.jpeg');;margin-bottom: 0px !important;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+            <div class="section-heading">
+              <h2 style="color: white !important;">OUR <em>FACILITIES</em></h2>
+            </div>
+          </div>
+        </div>
+        <div class="row" id="tabs">
+          <div class="col-lg-6">
+            <ul>
+              <li style="text-align: center;"><a href="#tabs-1" style="background-color:#ffffff;">Access to Toll JORR and MRT</a></li>
+              <li style="text-align: center;"><a href="#tabs-2" style="background-color:#ffffff;">Near by premium hospitals</a></li>
+              <li style="text-align: center;"><a href="#tabs-3" style="background-color:#ffffff;">Playground &amp; Jogging</a></li>
+              <li style="text-align: center;"><a href="#tabs-4" style="background-color:#ffffff;">Tennis &amp; Football</a></li>
+              <li style="text-align: center;"><a href="#tabs-5" style="background-color:#ffffff;">Palm Plaza &amp; Garden</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <ul>
+              <li style="text-align: center;"><a href="#tabs-1" style="background-color:#ffffff;">Access to Toll JORR and MRT</a></li>
+              <li style="text-align: center;"><a href="#tabs-2" style="background-color:#ffffff;">Near by premium hospitals</a></li>
+              <li style="text-align: center;"><a href="#tabs-3" style="background-color:#ffffff;">Playground &amp; Jogging</a></li>
+              <li style="text-align: center;"><a href="#tabs-4" style="background-color:#ffffff;">Tennis &amp; Football</a></li>
+              <li style="text-align: center;"><a href="#tabs-5" style="background-color:#ffffff;">Palm Plaza &amp; Garden</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-6 offset-lg-3">
+              <ul>
+                <li style="text-align: center;margin-bottom: 20px;margin-top: 20px;">
+                  <a href="https://booking.bonavistaapartments.com/">BOOK COURT NOW! <br /> (Residents Only)</a>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ***** Our Facilities End ***** -->
+
+    <!-- ***** Our Gallery Start ***** -->
+    <section class="section section-bg-cover" id="gallery">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+            <div class="section-heading">
+              <h2>OUR <em>GALLERY</em></h2>
+            </div>
+          </div>
+        </div>
+        <div class="row" id="tabs">
+          <div class="container-fluid wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="loop owl-carousel">
+                  <?php
+                  $galleryDir = 'gallery/';
+                  $images = glob($galleryDir . '*.{jpg}', GLOB_BRACE);
+
+                  if ($images && count($images) > 0) {
+                    $chunkSize = 2;
+                    $chunks = array_chunk($images, $chunkSize);
+                    foreach ($chunks as $chunk) {
+                      echo '<div class="item">';
+                      foreach ($chunk as $img) {
+                        $imgName = basename($img);
+                        // Optional: Extract title from filename, e.g. "Operasi Katarak" from "operasi_katarak.jpg"
+                        $title = ucwords(str_replace(['-', '_'], ' ', pathinfo($imgName, PATHINFO_FILENAME)));
+                        echo '<div class="portfolio-item">
+                            <div class="thumb">
+                              <img src="' . $img . '" alt="' . htmlspecialchars($title) . '">
+                              <div class="hover-content">
+                                <div class="inner-content">
+                                  <a href="#"><h4>' . $title . '</h4></a>
+                                  <span>2024</span>
+                                </div>
+                              </div>
+                            </div>
+                            </div>';
+                      }
+                      echo '</div>';
+                    }
+                  } else {
+                    echo '<div class="item"><div class="portfolio-item"><div class="thumb"><div class="hover-content"><div class="inner-content"><span>No gallery images found.</span></div></div></div></div></div>';
+                  }
+                  ?>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ***** Our Gallery End ***** -->
 
     <!-- ***** Call to Action Start ***** -->
-    <section class="section" id="call-to-action">
+    <section class="section" id="listing-unit"  style="background:#2d5a44">
       <div class="container" style="max-width: 100%;">
         <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+            <div class="section-heading">
+              <h2 style="color: white;">LISTING <em>RENT/SALE</em></h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-lg-10 offset-lg-1">
-            <div class="cta-content">
+            <div class="cta-content" style="margin-bottom: 70px !important;">
               <div class="col-md-12 fact-left wow slideInLeft">
               <div class="col-lg-12 carousel-flick">
                   <div class="gallery js-flickity"
@@ -268,108 +386,8 @@ require_once 'koneksi.php'; // Buat file koneksi.php untuk koneksi database
     </section>
     <!-- ***** Call to Action End ***** -->
 
-    <!-- ***** Our Classes Start ***** -->
-    <section class="section" id="our-classes">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 offset-lg-3">
-            <div class="section-heading">
-              <h2>Our <em>Facilities</em></h2>
-              <img src="assets/images/line-dec.png" alt="divider" />
-              <p>All the sports and recreation facilities you need, in close proximity to your apartment.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row" id="tabs">
-          <div class="col-lg-4">
-            <ul>
-              <li><a href="#tabs-1"><img src="assets/images/logobonavistakecil1.png" alt="icon" />Lobby &amp; EV Charger</a></li>
-              <li><a href="#tabs-2"><img src="assets/images/logobonavistakecil1.png" alt="icon" />Swimming Pool</a></li>
-              <li><a href="#tabs-3"><img src="assets/images/logobonavistakecil1.png" alt="icon" />Playground &amp; Jogging</a></li>
-              <li><a href="#tabs-4"><img src="assets/images/logobonavistakecil1.png" alt="icon" />Tennis &amp; Football</a></li>
-              <li><a href="#tabs-5"><img src="assets/images/logobonavistakecil1.png" alt="icon" />Palm Plaza &amp; Garden</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-8">
-            <section class="tabs-content">
-              <article id="tabs-1">
-                <img src="assets/images/collage_result.jpg" alt="Lobby and EV Charger" />
-                <h4>Lobby &amp; EV Charger in Bonavista Apartments</h4>
-                <p style="text-align: justify;">A welcoming lobby designed for comfort and style, serving as a pleasant meeting point for residents and guests. Equipped with a modern EV charging station, ensuring convenient and sustainable electric vehicle charging right on the premises.</p>
-              </article>
-              <article id="tabs-2">
-                <img src="assets/images/pool_collage.jpg" alt="Swimming Pools" />
-                <h4>Children’s and Adults’ Swimming Pool</h4>
-                <p style="text-align: justify;">A well-maintained swimming pool with dedicated areas for both children and adults, providing a safe and enjoyable space for family recreation and relaxation.</p>
-              </article>
-              <article id="tabs-3">
-                <img src="assets/images/playground_garden_collage.jpg" alt="Playground and Jogging Track" />
-                <h4>Playground &amp; Jogging</h4>
-                <p style="text-align: justify;">A safe and fun playground for children, complemented by a scenic jogging track that offers residents a refreshing outdoor space for exercise and leisure.</p>
-              </article>
-              <article id="tabs-4">
-                <img src="assets/images/sport_collage.jpg" alt="Tennis and Football Facilities" />
-                <h4>Tennis &amp; Football</h4>
-                <p style="text-align: justify;">Well-maintained tennis and football facilities, providing residents with excellent spaces for sports, recreation, and an active lifestyle.</p>
-              </article>
-              <article id="tabs-5">
-                <img src="assets/images/garden_collage.jpg" alt="Palm Plaza and Garden" />
-                <h4>Palm Plaza &amp; Garden</h4>
-                <p style="text-align: justify;">Palm Plaza and Garden offer a serene outdoor setting surrounded by lush greenery and elegant landscaping, perfect for relaxation, social gatherings, and leisurely walks.</p>
-              </article>
-            </section>
-          </div>
-          <div class="container-fluid wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="loop owl-carousel">
-                  <?php
-                  $galleryDir = 'gallery/';
-                  $images = glob($galleryDir . '*.{jpg}', GLOB_BRACE);
-
-                  if ($images && count($images) > 0) {
-                    $chunkSize = 2;
-                    $chunks = array_chunk($images, $chunkSize);
-                    foreach ($chunks as $chunk) {
-                      echo '<div class="item">';
-                      foreach ($chunk as $img) {
-                        $imgName = basename($img);
-                        // Optional: Extract title from filename, e.g. "Operasi Katarak" from "operasi_katarak.jpg"
-                        $title = ucwords(str_replace(['-', '_'], ' ', pathinfo($imgName, PATHINFO_FILENAME)));
-                        echo '<div class="portfolio-item">
-                            <div class="thumb">
-                              <img src="' . $img . '" alt="' . htmlspecialchars($title) . '">
-                              <div class="hover-content">
-                                <div class="inner-content">
-                                  <a href="#"><h4>' . $title . '</h4></a>
-                                  <span>2024</span>
-                                </div>
-                              </div>
-                            </div>
-                            </div>';
-                      }
-                      echo '</div>';
-                    }
-                  } else {
-                    echo '<div class="item"><div class="portfolio-item"><div class="thumb"><div class="hover-content"><div class="inner-content"><span>No gallery images found.</span></div></div></div></div></div>';
-                  }
-                  ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ***** Our Classes End ***** -->
-
-   
-
- 
-
-    <!-- ***** Contact Us Area Starts ***** -->
-    <section class="section" id="contact-us">
+    <!-- ***** Map Us Area Starts ***** -->
+    <section class="section" id="map-us">
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-12 col-md-12 col-xs-12">
@@ -390,7 +408,52 @@ require_once 'koneksi.php'; // Buat file koneksi.php untuk koneksi database
         </div>
       </div>
     </section>
-    <!-- ***** Contact Us Area Ends ***** -->
+    <!-- ***** Map Us Area Ends ***** -->
+     
+    <!-- ***** Our Contact Us Start ***** -->
+    <section class="section" id="contact-us" style="background-color: #2d5a44;margin-bottom: 0px !important;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+            <div class="section-heading">
+              <h2 style="color: white !important;">CONTACT <em>US</em></h2>
+            </div>
+          </div>
+        </div>
+        <div class="row" id="tabs" style="padding-bottom: 80px;">
+          <div class="col-lg-9">
+            <section class="tabs-content">
+              <article id="tabs-1">
+                <h5 style="color:#fff;margin-bottom:10px;">
+                  Email:
+                  <a href="mailto:pprsh2019@gmail.com" style="color:#25d366;text-decoration:underline;">
+                    pprsh2019@gmail.com
+                  </a>
+                </h5>
+                <h5 style="color:#fff;margin-bottom:10px;">
+                  Phone: (021)769-2535 (Building Management Office)
+                </h5>
+                <h5 style="color:#fff;margin-bottom:10px;">
+                  Mobile:
+                  <a href="https://wa.me/6285735341400" target="_blank" style="color:#25d366;text-decoration:underline;display:inline-flex;align-items:center;">
+                    <img src="assets/images/waicon.png" alt="WhatsApp" style="height:22px;width:22px;margin-right:6px;vertical-align:middle;">
+                    0857-3534-1400
+                  </a>
+                </h5>
+                <br />
+                <br />
+                <h5 style="color:#fff;margin-bottom:10px;">Address: </h5>
+                <h5 style="color:#fff;margin-bottom:10px;">Jalan Bonavista Raya</h5>
+                <h5 style="color:#fff;margin-bottom:10px;">Kelurahan Lebak Bulus</h5>
+                <h5 style="color:#fff;margin-bottom:10px;">Kecamatan Cilandak</h5>
+                <h5 style="color:#fff;margin-bottom:10px;">Jakarta Selatan 12440</h5>
+              </article>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ***** Our About Us End ***** -->
 
     <!-- ***** Footer Start ***** -->
     <footer>
@@ -423,7 +486,7 @@ require_once 'koneksi.php'; // Buat file koneksi.php untuk koneksi database
     <script src="assets/js/popper.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- Plugins -->
-    <script src="assets/js/owl-carousel.js?v=1.2.1"></script>
+    <script src="assets/js/owl-carousel.js?v=2.1"></script>
     <script src="assets/js/scrollreveal.min.js"></script>
     <script src="assets/js/waypoints.min.js"></script>
     <script src="assets/js/jquery.counterup.min.js"></script>
@@ -432,7 +495,7 @@ require_once 'koneksi.php'; // Buat file koneksi.php untuk koneksi database
     <script src="assets/js/accordions.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flickity@2/dist/flickity.pkgd.min.js"></script>
     <!-- Global Init -->
-    <script src="assets/js/custom.js?v=1.2.1"></script>
+    <script src="assets/js/custom.js?v=2.1"></script>
 
     <!-- Modal Bootstrap -->
 <div class="modal fade" id="carouselModal" tabindex="-1" role="dialog" aria-labelledby="carouselModalLabel" aria-hidden="true">

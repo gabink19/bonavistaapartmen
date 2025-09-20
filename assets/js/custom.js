@@ -159,7 +159,7 @@ function slideToNext() {
 }
 
 // Set interval untuk slideshow
-setInterval(slideToNext, 5000);
+// setInterval(slideToNext, 5000);
 $('.loop').owlCarousel({
   center: false,
   items: 2,
